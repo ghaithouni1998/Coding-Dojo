@@ -43,7 +43,7 @@ function timesTwo(num){ // Declare a function timesTwo
 
 var result = timesTwo(10); // Call the timesTwo  argument 10
 console.log(result); // Log the value of result (20) 
-console.log(num); // Log the value  num variabl  15 to the console
+console.log(num); // Log the value  num variabl  15 
 
 // code 6 
 
@@ -61,7 +61,7 @@ var result = timesTwoAgain(3) + timesTwoAgain(5);  // Call the timesTwoAgain (3)
 // Then with the argument 5 which prints num is 5 to the console and returns 10
 //  results of the two function = 6 + 10 = 16
 
-//  final console.log statement prints result is 16 to the console
+//  final console.log statement prints result is 16 
 //   code 7
 
 function sumNums(num1, num2) {  
@@ -113,9 +113,9 @@ console.log('result is', result);
 
 // 2 sumNums ( 2 , 1 ) is  3 It logs  3 to the console
 
-// 3  sumNums ( 3 , 3 ) is  returns 6 It logs sum is 6 to  console
+// 3  sumNums ( 3 , 3 ) is  returns 6 It logs sum is 6 
 
-//  4   sumNums( 5 , 6 ) is  returns 11 It logs sum is 11 to  console
+//  4   sumNums( 5 , 6 ) is  returns 11 It logs sum is 11 
 
 
 
