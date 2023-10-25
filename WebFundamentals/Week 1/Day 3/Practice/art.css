@@ -1,0 +1,32 @@
+
+
+.white {
+    height: 100px;
+    width: 100px;
+    color: #a39e9e;
+    border: 2px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #732020;
+    display: flex;
+}
+.red {
+    height: 300px;
+    width: 100px;
+    color: #9b9896;
+    border: 2px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #732020;
+    display: flex;
+}
+
+.blue{
+    height: 100px;
+    width: 100px;
+    border: 2px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #0400ff;
+    display: flex;
+}
