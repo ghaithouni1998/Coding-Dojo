@@ -1,0 +1,19 @@
+body {
+    display:inline-flex;
+}
+.black{
+    background-color: black;
+    width: 200px;
+    height: 400px;
+}
+.yellow{
+    background-color: rgb(255, 242, 0);
+    width: 200px;
+    height: 400px;
+}
+.red{
+    background-color: red;
+    width: 200px;
+    height: 400px;
+
+    
