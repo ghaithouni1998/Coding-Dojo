@@ -3,10 +3,13 @@ body {
 }
 .btn {
     background-color: #17a2b8;
+    color: white;
+    box-shadow: 5px 5px 2px 1px black;
+    font-family: "Roboto", sans-serif;
 }
 .nav{
     display: flex ;
-    justify-content:  space-between;
+    justify-content: space-between;
     background-color: #333333 ;
     color: white;
     align-items: center;
@@ -17,10 +20,16 @@ body {
     justify-content: space-around;
     width: 420px;
     list-style-type: none;
-    
+    font-family: "Roboto", sans-serif;
     
 }
 a{
     text-decoration: none;
     color: white;
+}
+.active {
+    font-weight: bold;
+}
+.nav.title{
+    margin-left: 10px;
 }
