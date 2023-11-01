@@ -1,9 +1,12 @@
-function disapear (element){
-    element.remove();
+function disapear (element)
+{
+    element.remove()
 }
-function like (element){
-    alert ("ninja was liked");
+function like (element)
+{
+    alert ("ninja was liked")
 }
-function logout (element){
+function logout (element)
+{
     element.innerText = "logout"
 }
