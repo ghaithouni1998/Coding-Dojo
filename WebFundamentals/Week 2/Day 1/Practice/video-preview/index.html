@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>VideoLab</h1>
+        <input type="text" placeholder="Search" class="search">
+        <button>Login</button>
+    </div>
+    <div class="container">
+        <div class="left">
+            <div class="video">
+                <video id="vid" src="./محمود درويش من اعظم ما قال - هل أنا حقاً أَنا؟.mp4" onmouseover="playVideo(this)" muted onmouseout="stopVideo(this)" width="700" height="500"></video>
+            </div>
+            <!-- this subvideo -->
+            
+            <div class="subvideo">
+                <div class="title">
+                    <h1>Exemple Video Title</h1>
+                    <h3>1.3K Views - June, 18, 2021</h3>
+                    <div class="img1">
+                        <img src="./assets/user.png" alt="">
+                        <span>Example User Name</span>
+                    </div>
+
+                </div>
+                <button>Subscribe</button>
+                <button onclick="PlayVideoByID()">Play Video</button>
+                <button onclick="pausevideo()"> stop video </button>
+            </div>
+        </div>
+        <div class="right">
+            <h3>Up Next</h3>
+            <div class="smallvideo">
+                <img src="./assets/video-placeholder.png" alt="">
+                <span>Just Another Video</span>
+            </div>
+            <div class="smallvideo">
+                <img src="./assets/video-placeholder.png" alt="">
+                <span>Just Another Video</span>
+            </div>
+            <div class="smallvideo">
+                <img src="./assets/video-placeholder.png" alt="">
+                <span>Just Another Video</span>
+            </div>
+            <div class="smallvideo">
+                <img src="./assets/video-placeholder.png" alt="">
+                <span>Just Another Video</span>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
