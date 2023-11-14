@@ -23,7 +23,7 @@ print("Sum of odd integers:", sum_odd)
 for i in range(2018, 0, -4):
     print(i)
     
- lowNum = 2
+lowNum = 2
 highNum = 9
 mult = 3
 for i in range(lowNum, highNum + 1):
