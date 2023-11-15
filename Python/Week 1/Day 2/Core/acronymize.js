@@ -36,7 +36,14 @@ const arr1 = [1, 2, 3];
 const separator1 = ", ";
 // const expected1 = "1, 2, 3"
 sep=", "
-for (i=0;i<arr1.length-1;i++)
+
+for (i=0; i<arr1.length-1; i++ ){
+  if(i=arr1.length-1){
+    join +=arr1[i]
+  }
+}
+
+
 
 
 
@@ -66,4 +73,3 @@ for (i=0;i<arr1.length-1;i++)
 
 // // create the function and decide what params it needs and what it will return
 // function join(arr, separator) {
-}
