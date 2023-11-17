@@ -1,0 +1,14 @@
+.name{
+    border: 4px solid black ;
+    padding: 2px;
+    font-size: 30px;
+
+}
+.name-th{
+    background-color: grey;
+    color: darkgoldenrod;
+}
+.table{
+    text-align: center;
+    margin-left: 150px;
+}
