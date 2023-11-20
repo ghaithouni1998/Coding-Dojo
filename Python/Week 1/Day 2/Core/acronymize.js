@@ -32,16 +32,16 @@
   Default the separator to a comma with a space after it if no separator is provided
 */js
 //                v
-const arr1 = [1, 2, 3];
-const separator1 = ", ";
-// const expected1 = "1, 2, 3"
-sep=", "
+// const arr1 = [1, 2, 3];
+// const separator1 = ", ";
+// // const expected1 = "1, 2, 3"
+// sep=", "
 
-for (i=0; i<arr1.length-1; i++ ){
-  if(i=arr1.length-1){
-    join +=arr1[i]
-  }
-}
+// for (i=0; i<arr1.length-1; i++ ){
+//   if(i=arr1.length-1){
+//     join +=arr1[i]
+//   }
+// }
 
 
 
@@ -73,3 +73,35 @@ for (i=0; i<arr1.length-1; i++ ){
 
 // // create the function and decide what params it needs and what it will return
 // function join(arr, separator) {
+/* 
+ 
+
+
+
+Given an array of strings
+  return the number of times each string occurs (a frequency / hash table)
+  hasOwnProperty()
+*/
+var user = {username:"John", age:35}
+
+// console.log(user.hasOwnProperty('age'));
+// console.log(user.hasOwnProperty('email'));
+
+const arr1 = ["a", "a", "a"];
+const expected1 = {
+  a: 3,
+};
+const arr2 = ["a", "b", "a", "c", "B", "c", "c", "d"];
+const expected2 = {
+  a: 2,
+  b: 1,
+  c: 3,
+  B: 1,
+  d: 1,
+};
+
+const arr3 = [];
+const expected3 = {};
+
+function makeFrequencyTable(arr) {
+}
