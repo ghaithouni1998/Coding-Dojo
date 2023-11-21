@@ -1,8 +1,27 @@
-from flask import Flask , render_template # Import Flask to allow us to create our app
-app = Flask(__name__)    # Create a new instance of the Flask class called "app"
+from flask import Flask, render_template, session, redirect, url_for, request
+
+app = Flask(__name__)
+app.secret_key = 'supersecretkey'
+
+@app.route('/')
+
+def index():
+    session['counter'] = session.get('counter', 0)
+    session['counter'] += 1
+    return render_template('index.html', counter=session['counter'], visits=session['counter'])
 
 
 
-return render_template("index.html")
-if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
-    app.run(debug=True)    
+@app.route('/reset')
+def destroy_session():
+    session.pop('counter', None)  
+    return redirect(url_for('index'))
+
+
+@app.route('/clik', methods=['POST'])
+def increment():
+    return redirect(url_for('index'))
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
