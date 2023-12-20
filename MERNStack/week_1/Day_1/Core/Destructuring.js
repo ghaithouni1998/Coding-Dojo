@@ -5,7 +5,7 @@
 // console.log(randomCar)
 // console.log(otherRandomCar)
 
-// ['tesla','mercedes','Honda']
+// ['tesla','mercedes']
 // ['mercedes','Honda']
 
 // 2
@@ -16,11 +16,11 @@
 // }
 // const { name: otherName } = employee;
 // const { name} = employee;
-// //Elon
-// //Elon
+
+
 // console.log(name);
 // console.log(otherName);
-
+    // elon
 // 3
 // const person = {
 //     name: 'Phil Smith',
