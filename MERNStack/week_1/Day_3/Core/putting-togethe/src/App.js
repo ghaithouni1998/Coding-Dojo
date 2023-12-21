@@ -16,6 +16,12 @@ const peopleArr = [
     age: 88,
     hairColor: "Brown",
   },
+  {
+    firstName: "jihed",
+    lastName: "ouni",
+    age: 45,
+    hairColor: "Black",
+  },
 
 ];
 
