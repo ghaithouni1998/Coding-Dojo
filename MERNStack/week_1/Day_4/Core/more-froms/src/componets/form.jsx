@@ -29,7 +29,7 @@ const Form = () => {
                 <div>
                     <label> email : </label>
                     <input type="email" value={email} onChange={(e) => Setemail(e.target.value)} />
-                    {email.length < 2 ? <p >email must be at zleast 2</p> : <p > email Valid!</p>}
+                    {email.length < 2 ? <p >email must be at least 2</p> : <p > email Valid!</p>}
                 </div>
                 <div>
                     <label> password :</label>
