@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 
 const Tabs = () => { 
     const tab =["tab 1","tab 2","tab3"];
-    const [msg,setMsg]= useState('') 
+    const [message,setmessage]= useState('') 
     const clickhandler=(e,y,i)=>{
 
+       
+       
         e.preventDefault();
-        setMsg(y + "showing here");
+        setmessage(y + "showing here");
     }
 return (
  <></>
