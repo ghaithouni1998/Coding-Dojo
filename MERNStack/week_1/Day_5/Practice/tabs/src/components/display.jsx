@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 
 const Tabs = () => { 
@@ -10,7 +9,7 @@ const Tabs = () => {
         setMsg(y + "showing here");
     }
 return (
- <div></div>
+ <></>
 
 )
 }

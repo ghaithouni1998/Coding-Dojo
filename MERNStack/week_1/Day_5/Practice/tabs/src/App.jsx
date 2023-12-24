@@ -8,18 +8,18 @@ import TabsDisplay from './components/display';
 function App() {
   const [data,setData]=useState("");
 
-  const newContent=(content)=>{
+  const newtabs=(content)=>{
     setData(content);
   }
   return (
     
     <div className="App">
     
-
+     <fieldset>
       <Tabs/>
-      <TabsDisplay data={newContent}/>
+      <TabsDisplay data={newtabs}/>
     
-      
+      </fieldset>
     </div>
   );
 }

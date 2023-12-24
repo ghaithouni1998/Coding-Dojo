@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react'
 
+import './tabs.css';
+
 const Tabs = () => { 
     const tab =["tab 1","tab 2","tab3"];
     const [msg,setMsg]= useState('') 
@@ -10,16 +12,19 @@ const Tabs = () => {
         setMsg(y + " content is showing here");
     }
 return (
-<fieldset>
+
+
+    
     <div>
     { tab.map((value,i)=>{
-        return <button  type="button" class="btn btn-dark"  key={i} onClick={(e)=> clickhandler(e,value,i)}  >{value} </button >
+        return <button id='btn'  type="button" class="btn btn-dark"  key={i} onClick={(e)=> clickhandler(e,value,i)}  >{value} </button >
     })
     }
-    <p>{msg}</p>
-
-    </div>
+    <fieldset>
+    <h1>{msg}</h1>
     </fieldset>
+    </div>
+    
 )
 }
 export default Tabs

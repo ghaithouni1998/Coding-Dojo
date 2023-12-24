@@ -19,22 +19,22 @@ const Form = () => {
                 <div>
                     <label>firstname :</label>
                     <input type="text" onChange={(e) => setFirstname(e.target.value)} />
-                    {firstname.length < 2 ? <p >firstname must be at least 2</p> : <p > firstname Valid!</p>}
+                    {firstname.length < 2 ? <p style={{color:"red"}}>firstname must be at least 2</p> : <p > firstname Valid!</p>}
                 </div>
                 <div>
                     <label>lastname : </label>
                     <input type="text" value={lastname} onChange={(e) => Setlastname(e.target.value)} />
-                    {lastname.length < 2 ? <p >lastname must be at least 2</p> : <p > lastname Valid!</p>}
+                    {lastname.length < 2 ? <p style={{color:"red"}}>lastname must be at least 2</p> : <p > lastname Valid!!!!</p>}
                 </div>
                 <div>
                     <label> email : </label>
                     <input type="email" value={email} onChange={(e) => Setemail(e.target.value)} />
-                    {email.length < 2 ? <p >email must be at least 2</p> : <p > email Valid!</p>}
+                    {email.length < 5 ? <p style={{color:"red"}} >email must be at least 5</p> : <p > email Valid!</p>}
                 </div>
                 <div>
                     <label> password :</label>
                     <input type="password" value={password} onChange={(e) => Setpassword(e.target.value)} />
-                    {password.length < 8 ? <p >password must be at least 8 </p> : <p > password Valid!</p>}
+                    {password.length < 8 ? <p style={{color:"red"}}>password must be at least 8 </p> : <p > password Valid!</p>}
                 </div>
                 <div>
                     <label> confirmpassword : </label>

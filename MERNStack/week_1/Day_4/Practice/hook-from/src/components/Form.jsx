@@ -34,10 +34,11 @@ const Form = () => {
             </div>
             <div>
                 <label> confirmpassword : </label> 
-                <input type="confirmpassword" value={confirmpassword} onChange={ (e) => Setconfirmpassword(e.target.value) } />
+                <input type="password" value={confirmpassword} onChange={ (e) => Setconfirmpassword(e.target.value) } />
             </div>
         </form>
         <div>
+            <h2>your from data</h2>
             <p>firstname:{firstname}</p>
             <p>lastname:{lastname}</p>
             <p>email:{email}</p>
