@@ -1,24 +1,28 @@
-import {Routes, Route, Link, Navigate} from "react-router-dom"
-// import './App.css'
-import People from "./components/people"
 
-import Form from "./components/Form"
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import './App.css';
+import People from "./components/people";
+import Forms from "./components/Forms";
 
 
 function App() {
-
   return (
-    <div className="container p-3 m-2">
-      <Form/>
-    <Routes>
-      <Route path="/" element={<><h1>people </h1></>}/>
-      
-      <Route path="/people/:id" element={<People/>}/>
-      
-      
-    </Routes>
+    <div className="App">
+      <Routes>
+        <Route path='/' element={<Forms/>}/>
+
+        <Route path='/:pep/:id' element={<><People/> <Forms/></>}/>
+        
+        <Route path="*" element={<Error />} />
+
+
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
