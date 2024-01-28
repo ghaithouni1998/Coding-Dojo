@@ -13,7 +13,6 @@ public class TestCafe {
         menu.add("drip coffee");
         menu.add("cappuccino");
         menu.add("latte");
-        menu.add("mocha");
         appTest.displayMenu(menu);
     
         System.out.println("\n----- Add Customer Test-----");
