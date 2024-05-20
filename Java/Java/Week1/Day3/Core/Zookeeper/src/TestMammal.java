@@ -28,7 +28,7 @@ public class TestMammal {
 		dracula.eatHumans();
 		
 		dracula.fly();
-		dracula.fly();
+		
 		
 		dracula.displayEnergy();
 	}
