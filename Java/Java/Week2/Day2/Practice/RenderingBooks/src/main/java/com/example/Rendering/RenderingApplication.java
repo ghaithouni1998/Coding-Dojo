@@ -1,13 +1,13 @@
-package com.example.book;
+package com.example.Rendering;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BooksApi1Application {
+public class RenderingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BooksApi1Application.class, args);
+		SpringApplication.run(RenderingApplication.class, args);
 	}
 
 }
