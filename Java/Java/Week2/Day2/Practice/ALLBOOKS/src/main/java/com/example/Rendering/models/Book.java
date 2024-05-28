@@ -16,10 +16,12 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+
 @Entity
 @Table(name = "books")
 public class Book {
-	// member varibales
+	// member variables
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -27,7 +29,7 @@ public class Book {
 	@Size(min = 5, max = 200)
 	private String title;
 	@NotNull
-	@Size(min = 5, max = 200)
+	@Size(min = 5, max = 200 , message ="you need a title !" )
 	private String description;
 	@NotNull
 	@Size(min = 3, max = 40)
