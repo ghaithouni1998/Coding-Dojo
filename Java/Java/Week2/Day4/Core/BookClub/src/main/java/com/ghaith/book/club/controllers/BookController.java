@@ -1,4 +1,4 @@
-package com.ghaith.cars.controlles;
+package com.ghaith.book.club.controllers;
 
 import java.util.List;
 
@@ -13,29 +13,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import com.ghaith.cars.models.Car;
-import com.ghaith.cars.models.User;
-import com.ghaith.cars.services.CarService;
-import com.ghaith.cars.services.UserService;
+import com.ghaith.book.club.models.Book;
+import com.ghaith.book.club.models.User;
+import com.ghaith.book.club.serveces.BookService;
+import com.ghaith.book.club.serveces.UserService;
+
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
-public class CarController {
+public class BookController {
     @Autowired
-    private CarService carSer;
+    private BookService bookSer;
 
     @Autowired
     private UserService userServ;
 
-    // Display form to create a new car
-    @GetMapping("/cars/new")
-    public String displayNewCarForm(@ModelAttribute("car") Car car, Model model, HttpSession session) {
+    // Display form to create a new book
+    @GetMapping("/books/new")
+    public String displayNewBookForm(@ModelAttribute("book") Book book, Model model, HttpSession session) {
     	// Route guard
     	Long userId = (Long) session.getAttribute("user_id");
         if (userId == null) {
-            return "redirect:/login"; 
+            return "redirect:/"; 
         }
 
         User loggedUser = userServ.findUserById(userId);
@@ -43,75 +44,80 @@ public class CarController {
         return "new.jsp";
     }
 
-    // Process the creation of a new car
-    @PostMapping("/processCar")
-    public String createCar(@Valid @ModelAttribute("car") Car car, BindingResult result, HttpSession session) {
+    // Process the creation of a new book
+    @PostMapping("/processBook")
+    public String createBook(@Valid @ModelAttribute("book") Book book, BindingResult result, HttpSession session) {
         if (result.hasErrors()) {
             return "new.jsp";
         }
      // Route guard
         Long userId = (Long) session.getAttribute("user_id");
         if (userId == null) {
-            return "redirect:/login"; // Route guard
+            return "redirect:/"; // Route guard
         }
 
         User user = userServ.findUserById(userId);
-        car.setPoster(user);
-        Car newCar = carSer.createCar(car);
-        return "redirect:/cars/show/" + newCar.getId();
+        book.setPoster(user);
+        Book newCar = bookSer.createBook(book);
+        return "redirect:/books";
     }
 
-    // Display a single car by its ID
-    @GetMapping("/cars/show/{id}")
-    public String showCar(@PathVariable("id") Long id, Model model , HttpSession session) {
+    // Display a single book by its ID
+    @GetMapping("/books/{id}")
+    public String showBook(@PathVariable("id") Long id, Model model , HttpSession session) {
     	Long userId = (Long) session.getAttribute("user_id");
         if (userId == null) {
             return "redirect:/";
         }// Route guard
-    	Car car = carSer.findCarById(id);
+    	Book book = bookSer.findBookById(id);
         
-        model.addAttribute("car", car);
-        return "show.jsp";
+        model.addAttribute("book", book);
+        return "showone.jsp";
         
     }
-    @GetMapping("/cars")
-    public String allCars(Model model,HttpSession session) {
+    @GetMapping("/books")
+    public String allBooks(Model model,HttpSession session) {
     	Long userId = (Long) session.getAttribute("user_id");
         if (userId == null) {
             return "redirect:/";}
         User user = userServ.findUserById(userId);
         model.addAttribute("user", user);
-        List<Car> allCars= carSer.allCars();
-        model.addAttribute("allCars", allCars);
+        List<Book> allBooks= bookSer.allBooks();
+        model.addAttribute("allBooks", allBooks);
         return "home.jsp";
     }
 
-    @GetMapping("/cars/edit/{id}")
+    @GetMapping("/books/{id}/edit")
     public String updateCr(@PathVariable("id") Long id, Model model,HttpSession session) {
     	// Route guard
     	Long userId = (Long) session.getAttribute("user_id");
         if (userId == null) {
             return "redirect:/";}
-    	Car car = carSer.findCarById(id);
-        model.addAttribute("car", car);
+    	Book book = bookSer.findBookById(id);
+        model.addAttribute("book", book);
         return "edit.jsp";
     }
 
-    @PutMapping("/updateCar/{id}")
-    public String editCar(@Valid @ModelAttribute("car")  Car car, BindingResult result) {
-        if (result.hasErrors()) {
+    @PutMapping("/updateBook/{id}")
+    public String editBook(@Valid @ModelAttribute("book")  Book book, BindingResult result ,HttpSession session) {
+        Long userId = (Long) session.getAttribute("user_id");
+
+    	if (result.hasErrors()) {
             return "edit.jsp";
         }else {
-            carSer.updateCar(car);
+        	
+            User user = userServ.findUserById(userId);
+            book.setPoster(user);
+            bookSer.updateBook(book);
         }
-        return "redirect:/cars";
+        return "redirect:/books";
     }
-    @DeleteMapping("/cars/delete/{id}")
-    public String deleteCar(@PathVariable("id") Long id ,HttpSession session) {
+    @DeleteMapping("/books/delete/{id}")
+    public String deleteBook(@PathVariable("id") Long id ,HttpSession session) {
     	Long userId = (Long) session.getAttribute("user_id");
         if (userId == null) {
             return "redirect:/";}
-        carSer.deleteCar(id);
-        return "redirect:/cars";
+        bookSer.deleteBook(id);
+        return "redirect:/books";
     }
 }

@@ -32,4 +32,13 @@ public class CarService {
 	public List<Car> allCars(){
 		return carRepo.findAll();
 	}
+	//edit
+    public Car updateCar(Car car) {
+        return carRepo.save(car);
+    }
+
+    //delete
+    public void deleteCar(Long id) {
+        carRepo.deleteById(id);
+    }
 }

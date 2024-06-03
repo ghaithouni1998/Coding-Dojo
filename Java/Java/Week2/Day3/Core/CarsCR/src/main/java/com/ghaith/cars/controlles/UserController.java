@@ -1,4 +1,4 @@
-package com.ghaith.book.club.controllers;
+package com.ghaith.cars.controlles;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.ghaith.book.club.models.LoginUser;
-import com.ghaith.book.club.models.User;
-import com.ghaith.book.club.serveces.UserService;
+import com.ghaith.cars.models.LoginUser;
+import com.ghaith.cars.models.User;
+import com.ghaith.cars.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -35,17 +35,22 @@ public class UserController {
     @PostMapping("/register")
     public String register(@Valid @ModelAttribute("newUser") User newUser, 
             BindingResult result, Model model, HttpSession session) {
-       
+        
+        // TO-DO Later -- call a register method in the service 
+        // to do some extra validations and create a new user!
         userServ.register(newUser, result);
         if(result.hasErrors()) {
-         
+            // Be sure to send in the empty LoginUser before 
+            // re-rendering the page.
             model.addAttribute("newLogin", new LoginUser());
             return "index.jsp";
         }
         
-    
+        // No errors! 
+        // TO-DO Later: Store their ID from the DB in session, 
+        // in other words, log them in.
         session.setAttribute("user_id", newUser.getId());
-        return "redirect:/books";
+        return "redirect:/cars";
     }
     
     @PostMapping("/login")
@@ -60,17 +65,17 @@ public class UserController {
             return "index.jsp";
         }
     
-      
+        // No errors! 
+        // TO-DO Later: Store their ID from the DB in session, 
+        // in other words, log them in.
         session.setAttribute("user_id", user.getId());
-        return "redirect:/books";
+        return "redirect:/cars";
     }
-    
     
     @GetMapping("/logout")
     public String logout(HttpSession s) {
     	s.invalidate();
     	return "redirect:/";
-    	
     }
     
 }

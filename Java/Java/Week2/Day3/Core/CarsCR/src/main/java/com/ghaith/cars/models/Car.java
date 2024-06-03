@@ -6,9 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -54,8 +57,19 @@ public class Car {
 	protected void onUpdate() {
 		this.updatedAt=new Date();
 	}
+	 // M : 1 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="poster_id")
+    private User poster;
     
-//   get and set
+    
+public User getPoster() {
+		return poster;
+	}
+	public void setPoster(User poster) {
+		this.poster = poster;
+	}
+	//   get and set
 	public Long getId() {
 		return id;
 	}

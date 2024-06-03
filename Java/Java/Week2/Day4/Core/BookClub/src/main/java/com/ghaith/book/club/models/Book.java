@@ -1,26 +1,36 @@
 package com.ghaith.book.club.models;
 
+import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="books")
 public class Book {
-
-	// MEMBER VARIABLES
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
-	@Size(min = 5, max = 200, message ="you need a title !")
+	@NotBlank(message="title must not be blank")
 	private String title;
 	
-	@NotBlank
-	@Size(min = 4, max = 100)
+	@NotBlank(message="author must not be blank")
 	private String author;
 	
-	@NotBlank
-	@Size(min = 4, max = 100)
+	@NotBlank(message="thoughts must not be blank")
 	private String thoughts;
 	
 	// This will not allow the createdAt column to be updated after creation
@@ -30,51 +40,29 @@ public class Book {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
-   // M : 1 
+ // M : 1 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="publisher_id")
-    private Publisher publisher;
-    
-    // M:1
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="author_id")
-    private User author;
+    @JoinColumn(name="poster_id")
+    private User poster;
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
-	}
-
-	public Publisher getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(Publisher publisher) {
-		this.publisher = publisher;
-	}
-
-	// zero-args constructor
+ // zero-args constructor
     public Book() {
 	
 	}
+
+    //	----- methods ---
+    // other getters and setters removed for brevity
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();}
+    
+    
+    //GETTERS & SETTERS
 
 	public Long getId() {
 		return id;
@@ -90,6 +78,14 @@ public class Book {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public String getThoughts() {
@@ -116,10 +112,14 @@ public class Book {
 		this.updatedAt = updatedAt;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public User getPoster() {
+		return poster;
+	}
+
+	public void setPoster(User poster) {
+		this.poster = poster;
 	}
     
-//	----- methods ---
-    // other getters and setters removed for brevity
-   
+    
+
+}

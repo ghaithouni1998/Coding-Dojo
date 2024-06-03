@@ -1,4 +1,4 @@
-package com.ghaith.book.club.models;
+package com.ghaith.cars.models;
 
 import java.util.Date;
 import java.util.List;
@@ -54,13 +54,15 @@ public class User {
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+//	1:M
 	
 	@OneToMany(mappedBy = "poster", fetch = FetchType.LAZY)
-	private List<Book> booksPosted;
+	private List<Car> carsPosted;
 	
-	
+//	const zero
 	public User() {
 	}
+	
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
@@ -90,6 +92,7 @@ public class User {
 		this.updatedAt = new Date();
 	}
 
+	// TODO - Don't forget to generate getters and setters
 	public Long getId() {
 		return id;
 	}
@@ -130,14 +133,12 @@ public class User {
 		this.confirm = confirm;
 	}
 
-	public List<Book> getBooksPosted() {
-		return booksPosted;
+	public List<Car> getCarsPosted() {
+		return carsPosted;
 	}
-	
 
-	public void setBooksPosted(List<Book> booksPosted) {
-		this.booksPosted = booksPosted;
+	public void setCarsPosted(List<Car> carsPosted) {
+		this.carsPosted = carsPosted;
 	}
+
 }
-	// TODO - Don't forget to generate getters and setters
-	

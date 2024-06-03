@@ -17,7 +17,8 @@
 </head>
 <body>
 <div class="container mt-3">
-<h1>Create New <span class="text-danger">Car</span></h1>
+<div class="d-flex justify-content-between">
+<h1>Create New <span class="text-danger">Car 🚘🚘🚘🚘🚘</span></h1>
 <form:form action="/processCar" methode="post" modelAttribute="car">
 	
 	

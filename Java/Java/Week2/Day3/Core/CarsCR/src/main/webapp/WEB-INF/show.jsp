@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="container mt-3">
+<td>${car.poster.userName}</td>
 <h1>${car.model } 🛻🛻🛻🛻🛻</h1>
 <p>${car.color }</p>
 <p>${car.price }</p>
