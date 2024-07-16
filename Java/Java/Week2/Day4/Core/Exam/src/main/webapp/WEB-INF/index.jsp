@@ -21,6 +21,7 @@
 <!-- REGISTER A NEW USER  -->
 		<!-- bring in the newUser empty Object -->
 		<div class="col-5 bg-light p-4">
+		<h1>Welcome To Fan Pages</h1>
 			<h3>Register</h3>
 			<form:form action="/register" 
 			method="post" modelAttribute="newUser">

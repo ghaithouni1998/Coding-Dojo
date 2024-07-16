@@ -19,41 +19,39 @@
 </head>
 <body>
    <div class="container">
-   <div class="d-flex justify-content-between">
+   <div >
    <div>
-   <h1>Welcome,${user.userName } 🙋‍♂️🙋‍♂️🙋‍♂️</h1>
-   <p>Books from everyone's shelves 📗📘📙📕</p>
+   <h1>${Celebrity.name }</h1>
+   
    </div>
    <div class="d-flex 	flex-column">
-  	<a href="/logout">logout</a>
-  	<a href="/books/new"> + Add a to my shelf</a>
+  	
+  	<a href="/home"  > Home</a>
    </div>
    </div>
-		
-	
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Author Name</th>
-					<th>Posted By</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${allBooks }" var="oneBook">
-					<tr>
-						<td>${oneBook.id}</td>
-						 <td><a href="/books/${oneBook.id}">${oneBook.title}</a></td>
-						<td>${oneBook.author}</td>
-						<td>${oneBook.poster.userName}</td>
-						
-						
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		</div>
+   
+   <h1>${celebrity.name }</h1>
+ <h1>  Page MANAGER : ${ celebrity.manager.userName }</h1>
+ <h1>Contact : ${celebrity.manager.email }</h1>
+ <h1> Details : ${ celebrity.details }</h1>
+    <div>
+    
+    <h1>Followers</h1>
+    <c:forEach items="${assignedCelebritys}" var="oneuser">
+    ${oneuser.userName }
+    ${oneuser.email}
+    </c:forEach>
+    </div>
+    
+   
+   
+   <hr>
+   <c:if test="${celebrity.manager.id ==user_id }">
+   <a href="/celebrites/${celebrity.id }/edit" class="btn btn-info"> Edit</a>
+    
+					
+   </c:if>
+   </div>
+   
 </body>
 </html>

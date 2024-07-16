@@ -58,7 +58,7 @@ public class BookController {
 
         User user = userServ.findUserById(userId);
         book.setPoster(user);
-        Book newCar = bookSer.createBook(book);
+        Book newBook = bookSer.createBook(book);
         return "redirect:/books";
     }
 

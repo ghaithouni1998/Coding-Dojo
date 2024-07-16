@@ -1,4 +1,4 @@
-package com.ghaith.book.club.models;
+package com.ghaith.examjava.models;
 
 import java.util.Date;
 import java.util.List;
@@ -11,6 +11,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -55,10 +58,16 @@ public class User {
 		return createdAt;
 	}
 //	1:M
-	@OneToMany(mappedBy = "poster", fetch = FetchType.LAZY)
-	private List<Book> booksPosted;
+	@OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
+	private List<Celebrity> celebritymanag;
 	
-	
+	 @ManyToMany(fetch = FetchType.LAZY)
+		@JoinTable(
+				name = "users_celebrites",
+				joinColumns = @JoinColumn(name = "user_id"),
+				inverseJoinColumns = @JoinColumn(name = "celebrity_id")
+		)
+	 private List<Celebrity> celebrites;
 	public User() {
 	}
 
@@ -130,14 +139,23 @@ public class User {
 		this.confirm = confirm;
 	}
 
-	public List<Book> getBooksPosted() {
-		return booksPosted;
+	public List<Celebrity> getCelebritymanag() {
+		return celebritymanag;
 	}
-	
 
-	public void setBooksPosted(List<Book> booksPosted) {
-		this.booksPosted = booksPosted;
+	public void setCelebritymanag(List<Celebrity> celebritymanag) {
+		this.celebritymanag = celebritymanag;
 	}
+
+	public List<Celebrity> getCelebrites() {
+		return celebrites;
+	}
+
+	public void setCelebrites(List<Celebrity> celebrites) {
+		this.celebrites = celebrites;
+	}
+
+	
 }
 	// TODO - Don't forget to generate getters and setters
 	

@@ -19,41 +19,36 @@
 </head>
 <body>
    <div class="container">
-   <div class="d-flex justify-content-between">
+   <div >
    <div>
    <h1>Welcome,${user.userName } 🙋‍♂️🙋‍♂️🙋‍♂️</h1>
-   <p>Books from everyone's shelves 📗📘📙📕</p>
+ 
    </div>
-   <div class="d-flex 	flex-column">
-  	<a href="/logout">logout</a>
-  	<a href="/books/new"> + Add a to my shelf</a>
+   <div >
+  	<a href="/logout">logout</a> <br>
+  	<div >
+  	<div class="d-grid gap-2">
+  	<a
+  	 class="btn btn-primary" href="/celebrites/new">Add celebrity Page</a>
    </div>
    </div>
 		
 	
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Author Name</th>
-					<th>Posted By</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${allBooks }" var="oneBook">
-					<tr>
-						<td>${oneBook.id}</td>
-						 <td><a href="/books/${oneBook.id}">${oneBook.title}</a></td>
-						<td>${oneBook.author}</td>
-						<td>${oneBook.poster.userName}</td>
+		
+				<c:forEach items="${allCelebritys }" var="oneCelebrity">
+					
+					
+					
+						
+						 <a href="/celebrites/${oneCelebrity.id}">${oneCelebrity.name}</a>
+						<p>${oneCelebrity.details}</p>
 						
 						
-					</tr>
+						
+					
 				</c:forEach>
-			</tbody>
-		</table>
+		
+		</div>
 		</div>
 </body>
 </html>

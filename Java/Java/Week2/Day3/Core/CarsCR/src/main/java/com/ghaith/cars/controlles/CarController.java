@@ -52,7 +52,7 @@ public class CarController {
      // Route guard
         Long userId = (Long) session.getAttribute("user_id");
         if (userId == null) {
-            return "redirect:/login"; // Route guard
+            return "redirect:/"; // Route guard
         }
 
         User user = userServ.findUserById(userId);
